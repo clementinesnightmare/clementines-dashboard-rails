@@ -1,6 +1,6 @@
 <div class="nft <%= style_class %>">
   <%
-    url = if %w[.png .jpg].include? nft.url.downcase
+    url = if nft.url.downcase.include?('.png') || nft.url.downcase.include?('.jpg')
             "https://resizer.greyh.at/250x,webp/" + nft.url
           else
             nft.url

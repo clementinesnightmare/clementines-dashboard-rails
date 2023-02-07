@@ -15,8 +15,8 @@ class MoralisIndexer
     params = {
       chain: 'eth',
       format: 'decimal',
-      limit: limit,
-      cursor: cursor,
+      limit:,
+      cursor:,
       disable_total: true,
       normalizeMetadata: true
     }
@@ -50,10 +50,10 @@ class MoralisIndexer
     headers = {
       'Accept' => 'application/json',
       'Content-Type' => 'application/json',
-      'X-API-Key' => ENV['MORALIS_API_KEY']
+      'X-API-Key' => ENV.fetch('MORALIS_API_KEY', nil)
     }
 
-    @connection = Faraday.new(url: MORALIS_URL, headers: headers) do |f|
+    @connection = Faraday.new(url: MORALIS_URL, headers:) do |f|
       f.response :json
     end
   end
