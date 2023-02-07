@@ -90,4 +90,18 @@ class Nft
   def marketplace_url
     "#{MARKETPLACE_URL}/assets/#{token_address}/#{token_id}"
   end
+
+  # @return [String] One of following categories based on the NFTs rarity:
+  # ultra-legendary, legendary, rare.
+  def category
+    if ultra_legendary?
+      'ultra-legendary'
+    elsif legendary?
+      'legendary'
+    elsif rare?
+      'rare'
+    else
+      ''
+    end
+  end
 end

@@ -10,11 +10,11 @@
   </div>
   <div class="welcome-message">Welcome to the Neighborhood <%= current_user.eth_address %>!</div>
   <div>
-    <div id="wallet-nfts">
+    <div id="wallet-container">
       <%= turbo_frame_tag "wallet", src: wallet_nfts_path do %>
       <% end %>
     </div>
-    <div id="vault-nfts" class="hidden">
+    <div id="vault-container" class="hidden">
       <%= turbo_frame_tag "vault", src: vault_nfts_path do %>
       <% end %>
     </div>
@@ -23,8 +23,8 @@
 
 <script>
     function show_wallet() {
-        let wallet = document.getElementById('wallet-nfts')
-        let vault = document.getElementById('vault-nfts')
+        let wallet = document.getElementById('wallet-container')
+        let vault = document.getElementById('vault-container')
 
         if (!vault.classList.contains('hidden')) {
             vault.classList.add('hidden')
@@ -36,8 +36,8 @@
     }
 
     function show_vault() {
-        let wallet = document.getElementById('wallet-nfts')
-        let vault = document.getElementById('vault-nfts')
+        let wallet = document.getElementById('wallet-container')
+        let vault = document.getElementById('vault-container')
 
         if (!wallet.classList.contains('hidden')) {
             wallet.classList.add('hidden')

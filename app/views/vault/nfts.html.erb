@@ -1,18 +1,13 @@
 <%= turbo_frame_tag "vault" do %>
-  <div class="nfts">
+  <div class="nfts" id="vault-nfts">
     <% @page[:data].each do |nft| %>
       <%= render partial: 'wallet/nft', locals: { nft: nft, style_class: '' } %>
     <% end %>
   </div>
-  <div class="pagination">
-    <%- if @page[:has_previous_page] -%>
-      <div class="previous">
-        <%= link_to 'Previous', vault_nfts_path(cursor: @page[:previous_cursor]) %>
-      </div>
-    <%- end -%>
+  <div class="pagination" id="vault-pagination">
     <%- if @page[:has_next_page] -%>
       <div class="next">
-        <%= link_to 'Next', vault_nfts_path(cursor: @page[:next_cursor]) %>
+        <%= link_to 'More', vault_nfts_path(cursor: @page[:next_cursor]), data: { turbo_stream: true } %>
       </div>
     <%- end -%>
   </div>
