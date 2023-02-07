@@ -1,0 +1,13 @@
+<%= turbo_stream.append "wallet-nfts" do %>
+  <% @page[:data].each do |nft| %>
+    <%= render partial: 'nft', locals: { nft: nft, style_class: nft.category } %>
+  <% end %>
+<% end %>
+
+<%= turbo_stream.update "wallet-pagination" do %>
+  <% if @page[:has_next_page] %>
+    <div class="next">
+      <%= link_to 'More', wallet_nfts_path(cursor: @page[:next_cursor]), data: { turbo_stream: true } %>
+    </div>
+  <% end %>
+<% end %>
