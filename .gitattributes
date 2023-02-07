@@ -1,4 +1,5 @@
-# See https://git-scm.com/docs/gitattributes for more about git attribute files.
+secretfile filter=git-crypt diff=git-crypt
+kube/* filter=git-crypt diff=git-crypt
 
 # Mark the database schema as having been generated.
 db/schema.rb linguist-generated
