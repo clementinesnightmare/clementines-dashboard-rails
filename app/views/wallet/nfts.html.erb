@@ -1,0 +1,40 @@
+<%= turbo_frame_tag "wallet" do %>
+  <% if @page[:data].present? %>
+    <div class="nfts">
+      <%
+        @page[:data].each do |nft|
+          style_class = if nft.ultra_legendary?
+                          'ultra-legendary'
+                        elsif nft.legendary?
+                          'legendary'
+                        elsif nft.rare?
+                          'rare'
+                        else
+                          ''
+                        end
+      %>
+        <%= render partial: 'nft', locals: { nft: nft, style_class: style_class } %>
+      <% end %>
+    </div>
+    <div class="pagination">
+      <%- if @page[:has_previous_page] -%>
+        <div class="previous">
+          <%= link_to 'Previous', wallet_nfts_path(cursor: @page[:previous_cursor]) %>
+        </div>
+      <%- end -%>
+      <%- if @page[:has_next_page] -%>
+        <div class="next">
+          <%= link_to 'Next', wallet_nfts_path(cursor: @page[:next_cursor]) %>
+        </div>
+      <%- end -%>
+    </div>
+  <% else %>
+    <div class="empty">
+        <p>You have no Clementine's Nightmare NFTs in this wallet.</p>
+        <p>Visit the neighborhood on OpenSea!</p>
+        <a target='_blank' href="<%= Rails.configuration.clem_config['MARKETPLACE_LINK_GENESIS'] %>" class="marketplace">
+          <img alt="OpenSea logo" src="<%= asset_path('opensea.png') %>"/>
+        </a>
+    </div>
+  <% end %>
+<% end %>

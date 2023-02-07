@@ -1,0 +1,98 @@
+{
+  "token_address": "0x17aad3fcf1703ef7908777084ec24e55bc58ae33",
+  "token_id": "9916",
+  "amount": "1",
+  "owner_of": "0x909f53d1debef4250c438f2d96c835a3a0e1d89d",
+  "token_hash": "43ccb003aafb3ad20cf8fd52167cc8f2",
+  "block_number_minted": "14586119",
+  "block_number": "16474164",
+  "contract_type": "ERC721",
+  "name": "Clementine's Nightmare",
+  "symbol": "CLEM",
+  "token_uri": "https://ipfs.moralis.io:2053/ipfs/Qmcufz2MVAWQr8fc1SRfy35rDXpvSnwMcvEcNF1BxSaQPW/9916.json",
+  "metadata": "{\"name\":\"Roux Atome #9916\",\"image\":\"ipfs://QmUgjPh7VV2KYkycLcfyiZ4bJNtLDcJ51e6WBhhkVtmUvS/9916.png\",\"attributes\":[{\"trait_type\":\"Character\",\"value\":\"Roux Atome\"},{\"trait_type\":\"Background\",\"value\":\"Cat Eyes\"},{\"trait_type\":\"Skin\",\"value\":\"Grayscale\"},{\"trait_type\":\"Wrist\",\"value\":\"Will O Wisp\"},{\"trait_type\":\"Trinket\",\"value\":\"Off\"},{\"trait_type\":\"Leg\",\"value\":\"Off\"},{\"trait_type\":\"Hands\",\"value\":\"Off\"},{\"trait_type\":\"Waist\",\"value\":\"White Neutrons\"},{\"trait_type\":\"Face\",\"value\":\"Off\"}]}",
+  "last_token_uri_sync": "2022-07-28T16:46:31.954Z",
+  "last_metadata_sync": "2023-01-27T23:01:33.031Z",
+  "minter_address": "0xc21d835cdc0fd386b95b0526a21bb80ccfa5acf9",
+  "normalized_metadata": {
+    "name": "Roux Atome #9916",
+    "description": null,
+    "animation_url": null,
+    "external_link": null,
+    "image": "ipfs://QmUgjPh7VV2KYkycLcfyiZ4bJNtLDcJ51e6WBhhkVtmUvS/9916.png",
+    "attributes": [
+      {
+        "trait_type": "Character",
+        "value": "Roux Atome",
+        "display_type": null,
+        "max_value": null,
+        "trait_count": 0,
+        "order": null
+      },
+      {
+        "trait_type": "Background",
+        "value": "Cat Eyes",
+        "display_type": null,
+        "max_value": null,
+        "trait_count": 0,
+        "order": null
+      },
+      {
+        "trait_type": "Skin",
+        "value": "Grayscale",
+        "display_type": null,
+        "max_value": null,
+        "trait_count": 0,
+        "order": null
+      },
+      {
+        "trait_type": "Wrist",
+        "value": "Will O Wisp",
+        "display_type": null,
+        "max_value": null,
+        "trait_count": 0,
+        "order": null
+      },
+      {
+        "trait_type": "Trinket",
+        "value": "Off",
+        "display_type": null,
+        "max_value": null,
+        "trait_count": 0,
+        "order": null
+      },
+      {
+        "trait_type": "Leg",
+        "value": "Off",
+        "display_type": null,
+        "max_value": null,
+        "trait_count": 0,
+        "order": null
+      },
+      {
+        "trait_type": "Hands",
+        "value": "Off",
+        "display_type": null,
+        "max_value": null,
+        "trait_count": 0,
+        "order": null
+      },
+      {
+        "trait_type": "Waist",
+        "value": "White Neutrons",
+        "display_type": null,
+        "max_value": null,
+        "trait_count": 0,
+        "order": null
+      },
+      {
+        "trait_type": "Face",
+        "value": "Off",
+        "display_type": null,
+        "max_value": null,
+        "trait_count": 0,
+        "order": null
+      }
+    ]
+  }
+}

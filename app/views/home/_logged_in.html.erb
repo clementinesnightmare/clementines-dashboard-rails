@@ -1,0 +1,56 @@
+<div class="logged-in-container">
+  <div>
+    <a href="https://clementinesnightmare.io">
+      <img src="<%= asset_path('logo.png') %>" alt="Clementine's Nightmare Logo" class="logo"/>
+    </a>
+  </div>
+  <div class="wallet-vault-buttons">
+    <button id="wallet-button" class="button wallet"/>
+    <button id="vault-button" class="button vault"/>
+  </div>
+  <div class="welcome-message">Welcome to the Neighborhood <%= current_user.eth_address %>!</div>
+  <div>
+    <div id="wallet-nfts">
+      <%= turbo_frame_tag "wallet", src: wallet_nfts_path do %>
+      <% end %>
+    </div>
+    <div id="vault-nfts" class="hidden">
+      <%= turbo_frame_tag "vault", src: vault_nfts_path do %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<script>
+    function show_wallet() {
+        let wallet = document.getElementById('wallet-nfts')
+        let vault = document.getElementById('vault-nfts')
+
+        if (!vault.classList.contains('hidden')) {
+            vault.classList.add('hidden')
+        }
+
+        if (wallet.classList.contains('hidden')) {
+            wallet.classList.remove('hidden')
+        }
+    }
+
+    function show_vault() {
+        let wallet = document.getElementById('wallet-nfts')
+        let vault = document.getElementById('vault-nfts')
+
+        if (!wallet.classList.contains('hidden')) {
+            wallet.classList.add('hidden')
+        }
+
+        if (vault.classList.contains('hidden')) {
+            vault.classList.remove('hidden')
+        }
+    }
+
+
+    document.getElementById('wallet-button').onclick = show_wallet
+    document.getElementById('vault-button').onclick = show_vault
+
+    //# sourceURL=logged-in-home.js
+</script>

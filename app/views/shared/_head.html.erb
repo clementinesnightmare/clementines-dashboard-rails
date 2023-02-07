@@ -1,0 +1,55 @@
+<title><%= @page_title.presence || "Clementine's Nightmare Dashboard" %></title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<%= csrf_meta_tags %>
+<%= csp_meta_tag %>
+<%= stylesheet_link_tag 'application', 'data-turbo-track': 'reload' %>
+<%- if @load_eth_js.present? -%>
+  <script src="<%= asset_path('custom/ethers.min.js') %>" defer></script>
+  <script src="<%= asset_path('custom/wallet-sdk-bundle.js') %>" defer></script>
+  <script src="<%= asset_path('custom/web3-provider.min.js') %>" defer></script>
+  <script src="<%= asset_path('custom/web3modal.min.js') %>" defer></script>
+<%- end -%>
+<%= javascript_importmap_tags %>
+<%= yield :head %>
+<meta name="twitter:site" content="@ClementinesGame" />
+<meta name="twitter:card" content="<%= @page_twitter_card.presence || 'summary_large_image' %>" />
+<%- if @page_title.present? -%>
+  <meta name="twitter:title" content="<%= @page_title %>" />
+  <meta property="og:title" content="<%= @page_title %>" />
+<%- end -%>
+<%- if @page_description.present? -%>
+  <meta name="description" content="<%= @page_description %>" />
+  <meta name="twitter:description" content="<%= @page_description %>" />
+  <meta property="og:description" content="<%= @page_description %>" />
+<%- end -%>
+<%- image_url = @page_image_url
+
+  if !image_url && @page_image_asset.present?
+    image_url = asset_url(@page_image_asset)
+  end
+
+  if image_url.present? -%>
+  <meta name="thumbnail" content="<%= image_url %>" />
+  <meta name="twitter:image" content="<%= image_url %>" />
+  <meta property="og:image" content="<%= image_url  %>" />
+<%- end -%>
+<%- if @page_meta_url.present? -%>
+  <meta property="og:url" content="<%= @page_meta_url %>" />
+<%- end -%>
+
+<!-- TODO: Remove/change gtag settings? -->
+<%- if Rails.env.production? && ENV['FORCE_SSL'] -%>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KEKBDM2SYE"></script>
+  <script>
+    document.addEventListener("turbo:load", function(event) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-KEKBDM2SYE', {
+        'page_location': event.detail.url
+      });
+    }, false)
+  </script>
+<%- end -%>

@@ -1,0 +1,29 @@
+<div class="nft <%= style_class %>">
+  <%
+    url = if %w[.png .jpg].include? nft.url.downcase
+            "https://resizer.greyh.at/250x,webp/" + nft.url
+          else
+            nft.url
+          end
+  %>
+  <% if nft.video? %>
+    <video alt="<%= nft.name %>"
+           class="nft-video"
+           controls>
+      <source src="<%= url %>" type="video/mp4"/>
+      Your browser does not support the video tag.
+    </video>
+  <% else %>
+    <img src="<%= url %>"
+         alt="<%= nft.name %>"
+         class="nft-img"
+         loading="lazy"/>
+  <% end %>
+
+  <p class="nft-name">
+    <%= nft.name&.truncate(25) %>
+    <a target='_blank' href="<%= nft.marketplace_url %>" class="marketplace">
+      <img alt="OpenSea icon" src="<%= asset_path('opensea-icon.png') %>"/>
+    </a>
+  </p>
+</div>

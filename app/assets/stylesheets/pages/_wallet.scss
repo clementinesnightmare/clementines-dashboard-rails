@@ -1,0 +1,80 @@
+#wallet, #vault {
+  .empty {
+    max-width: 1200px;
+    text-align: center;
+    padding: $padding-standard;
+  }
+
+  .nfts{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    text-align: center;
+  }
+
+  .nft {
+    margin: 10px;
+    background-color: $primary-background-color;
+    border-radius: 15px;
+  }
+
+  .nft-img {
+    width: 250px;
+    height: 250px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+  }
+
+  .nft-video {
+    width: 250px;
+    height: 250px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+  }
+
+  .nft-name {
+    padding: 5px;
+    color: $primary-text-color
+  }
+
+  .ultra-legendary .nft-name {
+    color: $ultra-text-color
+  }
+
+  .legendary .nft-name {
+    color: $legendary-text-color
+  }
+
+  .rare .nft-name {
+    color: $rare-text-color
+  }
+
+  .nft a.marketplace > img{
+    vertical-align: middle;
+    height: 16px;
+    width: 16px;
+    margin-left: 6px;
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .next, .previous {
+    padding: $padding-standard;
+
+    a:link, a:visited {
+      color: $primary-text-color;
+      text-decoration: none;
+    }
+  }
+}
+
+
+
+
+
