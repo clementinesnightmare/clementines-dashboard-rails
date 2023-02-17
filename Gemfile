@@ -30,7 +30,8 @@ gem 'stimulus-rails'
 gem 'jbuilder'
 
 # Use Redis adapter to run Action Cable in production
-# gem "redis", "~> 4.0"
+gem 'hiredis'
+gem 'redis', '~> 4.0'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -77,3 +78,7 @@ end
 
 gem 'eth', '0.5.6'
 gem 'faraday', '2.7.2'
+gem 'sidekiq'
+gem 'sidekiq-cron'
+gem 'sidekiq-unique-jobs'
+gem 'with_advisory_lock'

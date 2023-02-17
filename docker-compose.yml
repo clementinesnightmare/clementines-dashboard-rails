@@ -8,6 +8,14 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
 
+  redis:
+    image: redis
+    volumes:
+      - redis_data:/data
+    restart: always
+    ports:
+      - "6379:6379"
+
   rails:
     depends_on:
       - db
@@ -16,7 +24,22 @@ services:
       - "9001:3000"
     restart: always
     environment:
+        REDIS_URI: redis://redis:6379
+        SIDEKIQ_USERNAME: admin
+        SIDEKIQ_PASSWORD: sidekiq
+        RAILS_ENV: production
+        RAILS_SERVE_STATIC_FILES: 1
+  sidekiq:
+    depends_on:
+      - db
+      - redis
+    image: clementines-dashboard
+    restart: always
+    command: bundle exec sidekiq
+    environment:
+      REDIS_URI: redis://redis:6379
       RAILS_ENV: production
-      RAILS_SERVE_STATIC_FILES: 1
 volumes:
   db_data:
+  redis_data:
+
