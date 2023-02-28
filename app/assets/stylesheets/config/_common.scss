@@ -11,3 +11,63 @@ body {
 .hidden {
   display: none;
 }
+
+fieldset {
+  border: none;
+}
+
+label {
+  color: $primary-label-color;
+  font-weight: bold;
+  display: block;
+}
+
+label.checkbox {
+  display: inline;
+  margin-right: $margin-standard;
+}
+
+input {
+  width: 100%;
+  max-width: 500px;
+  padding: 5px 10px;
+  margin: 0;
+  border: 1px solid darkgrey;
+  background-image: none;
+  background-color: white;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  font-size: 1em;
+  line-height: 1;
+}
+
+input[type=checkbox] {
+  width: auto;
+}
+
+button, .button {
+  display: block;
+  width: fit-content;
+  min-width: 50px;
+  padding: 10px;
+  border: 1px solid gray;
+  background-color:$primary-button-color;
+  border-radius: 5px;
+  font: inherit;
+  color: $primary-text-color;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.tooltip-asterisk {
+  font-size: 24px;
+  color: $tooltip-text-color;
+  position: relative;
+  top: 0;
+}
+
+.tooltip {
+  font-size: 14px;
+  color: $tooltip-text-color;
+}

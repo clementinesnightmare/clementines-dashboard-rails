@@ -1,0 +1,72 @@
+.profile-screen {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  min-height: 100vh;
+  background-image: url("background.webp");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.profile-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  width: 100vw;
+  min-height: 100vh;
+  align-items: center;
+}
+
+.profile-fields {
+  width: 400px;
+
+  .public-profile-link {
+    color: $highlighted-link-text-color;
+    font-size: 0.9em;
+  }
+
+  .tweet-button {
+    vertical-align: middle;
+  }
+}
+
+.public-profile-container {
+  display: flex;
+  flex-direction: column;
+
+  section.username {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .user-socials {
+    min-width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .social {
+    margin-right: $margin-standard;
+
+    :last-child {
+      margin-right: 0;
+    }
+  }
+
+  .social-link {
+    color: $primary-text-color;
+    text-decoration: none;
+  }
+
+  .social-icon {
+    height: 36px;
+    vertical-align: middle;
+    margin-right: $margin-small;
+  }
+}
