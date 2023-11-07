@@ -10,7 +10,7 @@ class User < ApplicationRecord
   validates :eth_nonce, presence: true, uniqueness: true
   validates :username, presence: true, uniqueness: true, length: { maximum: 42 },
                        format: {
-                         with: /\A[a-zA-Z0-9-_]+\z/,
+                         with: /\A[a-zA-Z0-9\-_]+\z/,
                          message: 'should contain only letters, numbers, hyphens and underscores'
                        }
 
