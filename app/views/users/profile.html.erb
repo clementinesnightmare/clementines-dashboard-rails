@@ -1,0 +1,40 @@
+<div class="profile-container">
+  <%= turbo_frame_tag :user_profile_show_and_edit do %>
+    <div class="profile-fields">
+      <fieldset>
+        <p>
+          <label for="username">Username</label>
+          <span class="force-wrap"><%= current_user.username %></span>
+        </p>
+        <!--
+        <p>
+          <label for="lunchmoney">Lunch Money</label>
+          <%#= current_user.lunch_money %>
+        </p>
+        -->
+        <% if current_user.twitter_username.present? %>
+          <p>
+            <label for="twitter_username">Twitter Username</label>
+            <%= current_user.twitter_username.presence || 'N/A' %>
+          </p>
+        <% end %>
+        <% if current_user.discord_username.present? %>
+          <p>
+            <label for="discord_username">Discord Username</label>
+            <%= current_user.discord_username.presence || 'N/A' %>
+          </p>
+        <% end %>
+        <p>
+          <label for="public_profile">Public</label>
+          <%= current_user.public_profile ? 'Yes' : 'No' %>
+        </p>
+        <p>
+          <%= link_to 'Edit', edit_profile_path, class: 'button' %>
+          <% if current_user.public_profile %>
+            <%= link_to 'View Profile', public_profile_path(current_user.username), class: 'button' %>
+          <% end %>
+        </p>
+      </fieldset>
+    </div>
+  <% end %>
+</div>

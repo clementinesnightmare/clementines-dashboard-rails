@@ -1,8 +1,26 @@
 <header class="header">
-  <%- if logged_in? -%>
+  <div class="menu">
+    <% if logged_in? || action_name == 'public_profile' %>
+      <div class="menu-item">
+        <%= link_to('Home', root_path, class: 'home') %>
+      </div>
+    <% end %>
+    <%- if logged_in? -%>
+      <div class="menu-item">
+        <%= link_to('Profile', profile_path, class: 'profile') %>
+      </div>
+      <div class="menu-item">
+        <%= link_to('Logout', destroy_user_session_path, data: { 'turbo-method': :delete }, class: 'logout') %>
+      </div>
+    <%- end -%>
+  </div>
+  <%- if logged_in? || action_name == 'public_profile' -%>
     <div>
-      <%= link_to('Logout', destroy_user_session_path, data: { 'turbo-method': :delete }, class: 'logout') %>
+      <a href="https://clementinesnightmare.io">
+        <img src="<%= asset_path('logo.png') %>" alt="Clementine's Nightmare Logo" class="logo"/>
+      </a>
     </div>
-  <%- end -%>
+
+<%- end -%>
 </header>
 

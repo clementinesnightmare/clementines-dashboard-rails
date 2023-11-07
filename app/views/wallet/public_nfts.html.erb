@@ -1,0 +1,24 @@
+<%= turbo_frame_tag "public-wallet" do %>
+  <% if @page[:data].present? %>
+    <div class="nfts" id="wallet-nfts">
+      <%  @page[:data].each do |nft| %>
+        <%= render partial: 'nft', locals: { nft: nft, style_class: nft.category } %>
+      <% end %>
+    </div>
+    <div class="pagination" id="wallet-pagination">
+      <%- if @page[:has_next_page] -%>
+        <div class="next">
+          <%= link_to 'More', wallet_nfts_path(cursor: @page[:next_cursor]), data: { turbo_stream: true } %>
+        </div>
+      <%- end -%>
+    </div>
+  <% else %>
+    <div class="empty">
+      <p>You have no Clementine's Nightmare NFTs in this wallet.</p>
+      <p>Visit the neighborhood on OpenSea!</p>
+      <a target='_blank' href="<%= Rails.configuration.clem_config['MARKETPLACE_LINK_GENESIS'] %>" class="marketplace">
+        <img alt="OpenSea logo" src="<%= asset_path('opensea.png') %>"/>
+      </a>
+    </div>
+  <% end %>
+<% end %>

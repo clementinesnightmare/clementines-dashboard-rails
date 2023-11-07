@@ -1,11 +1,24 @@
 header {
   width: 100%;
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: $padding-standard;
 }
 
-a.logout {
+.menu {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: $padding-standard;
+
+  .menu-item {
+    padding: $padding-small;
+  }
+}
+
+a.home, a.profile, a.logout {
   color: $primary-text-color;
   text-decoration: none;
   visited: {

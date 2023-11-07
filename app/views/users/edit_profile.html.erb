@@ -1,0 +1,40 @@
+<%= turbo_frame_tag :user_profile_show_and_edit do %>
+  <%= form_with(model: current_user, url: profile_path) do |form| %>
+    <div class="profile-fields">
+      <fieldset>
+        <p>
+          <label for="username">Username</label>
+          <%= form.text_field :username, maxlength: 64 %>
+        </p>
+        <p>
+          <label for="twitter_username">Twitter Username</label>
+          <%= form.text_field :twitter_username, maxlength: 15 %>
+        </p>
+        <p>
+          <label for="discord_username">Discord Username</label>
+          <%= form.text_field :discord_username, maxlength: 32 %>
+        </p>
+        <p>
+          <label for="public_profile" class="checkbox">Create a Public Profile?<sup class="tooltip-asterisk">*</sup></label>
+          <%= form.check_box :public_profile %>
+        </p>
+        <p>
+          <%= form.submit 'Save', class: "button" %>
+        </p>
+        <p class="tooltip">
+          <sup class="tooltip-asterisk">*</sup> A public profile allows you to showcase your Clementine's NFT collection to the world.
+        </p>
+      </fieldset>
+    </div>
+  <%- end -%>
+  <%- if current_user.errors.any? -%>
+    <div class="error-messages">
+      <h2><%= pluralize(current_user.errors.count, 'error') %> prohibited your changes from being saved:</h2>
+      <ul>
+        <%- current_user.errors.each do |error| -%>
+          <li><%= error.full_message %></li>
+        <%- end -%>
+      </ul>
+    </div>
+  <%- end -%>
+<%- end -%>
