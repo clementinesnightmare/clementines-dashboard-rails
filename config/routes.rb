@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get '/profile/edit', to: 'users#edit_profile', as: :edit_profile
   patch '/profile', to: 'users#update_profile'
   put '/profile', to: 'users#update_profile'
-  get '/profile/public/:username', to: 'users#public_profile', as: :public_profile
+  get '/p/:username', to: 'users#public_profile', as: :public_profile
 
   post '/sessions', to: 'sessions#create'
   delete '/sessions', to: 'sessions#destroy', as: :destroy_user_session
