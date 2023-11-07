@@ -10,10 +10,7 @@ class UsersController < ApplicationController
 
   # GET /profile/public
   def public_profile
-    @user = User.find_by(username: public_profile_params[:username])
-    return unless !@user || !@user.public_profile
-
-    render_not_found
+    @user = User.find_by(username: public_profile_params[:username], public_profile: true)
   end
 
   # GET /profile/edit

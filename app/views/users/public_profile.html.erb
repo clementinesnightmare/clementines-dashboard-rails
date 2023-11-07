@@ -1,23 +1,27 @@
 <div class="public-profile-container">
-  <section class="username">
-    <h1><%= @user.username %></h1>
-  </section>
-  <% if @user.twitter_username.present? || @user.discord_username.present? %>
-    <section class="user-socials">
-      <div class="social">
-        <a href="<%= @user.twitter_url %>" target="_blank" class="social-link">
-          <img src="<%= asset_path('twitter-white.png')%>" class="social-icon">
-        </a>
-      </div>
-      <div class="social">
-        <a href="<%= @user.discord_url %>" target="_blank" class="social-link">
-          <img src="<%= asset_path('discord-white.png')%>" class="social-icon">
-        </a>
-      </div>
+  <% if @user && @user.public_profile %>
+    <section class="username">
+      <h1><%= @user.username %></h1>
     </section>
-  <% end %>
-  <div id="public-wallet-container">
-    <%= turbo_frame_tag "public-wallet", src: public_wallet_path(@user.username) do %>
+    <% if @user.twitter_username.present? || @user.discord_username.present? %>
+      <section class="user-socials">
+        <div class="social">
+          <a href="<%= @user.twitter_url %>" target="_blank" class="social-link">
+            <img src="<%= asset_path('twitter-white.png')%>" class="social-icon">
+          </a>
+        </div>
+        <div class="social">
+          <a href="<%= @user.discord_url %>" target="_blank" class="social-link">
+            <img src="<%= asset_path('discord-white.png')%>" class="social-icon">
+          </a>
+        </div>
+      </section>
     <% end %>
-  </div>
+    <div id="public-wallet-container">
+      <%= turbo_frame_tag "public-wallet", src: public_wallet_path(@user.username) do %>
+      <% end %>
+    </div>
+  <% else %>
+    <p>Not Found</p>
+  <% end %>
 </div>
