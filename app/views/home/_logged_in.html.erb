@@ -3,7 +3,7 @@
     <button id="wallet-button" class="button wallet"/>
     <button id="vault-button" class="button vault"/>
   </div>
-  <div class="welcome-message">Welcome to the Neighborhood <%= current_user.eth_address %>!</div>
+  <div class="welcome-message">Welcome to the Neighborhood <span class="force-wrap"><%= current_user.username %></span>!</div>
   <div>
     <div id="wallet-container">
       <%= turbo_frame_tag "wallet", src: wallet_nfts_path do %>

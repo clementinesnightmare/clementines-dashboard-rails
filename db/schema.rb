@@ -16,14 +16,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_23_203344) do
     t.string "eth_nonce"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "lunch_money", default: 0
     t.string "username"
     t.string "twitter_username"
     t.string "discord_username"
     t.boolean "public_profile"
     t.index ["eth_address"], name: "index_users_on_eth_address", unique: true
     t.index ["eth_nonce"], name: "index_users_on_eth_nonce", unique: true
-    t.index ["lunch_money"], name: "index_users_on_lunch_money"
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 

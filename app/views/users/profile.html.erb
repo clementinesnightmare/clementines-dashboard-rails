@@ -4,36 +4,35 @@
       <fieldset>
         <p>
           <label for="username">Username</label>
-          <%= current_user.username %>
+          <span class="force-wrap"><%= current_user.username %></span>
         </p>
+        <!--
         <p>
           <label for="lunchmoney">Lunch Money</label>
-          <%= current_user.lunch_money %>
+          <%#= current_user.lunch_money %>
         </p>
+        -->
+        <% if current_user.twitter_username.present? %>
+          <p>
+            <label for="twitter_username">Twitter Username</label>
+            <%= current_user.twitter_username.presence || 'N/A' %>
+          </p>
+        <% end %>
+        <% if current_user.discord_username.present? %>
+          <p>
+            <label for="discord_username">Discord Username</label>
+            <%= current_user.discord_username.presence || 'N/A' %>
+          </p>
+        <% end %>
         <p>
-          <label for="twitter_username">Twitter Username</label>
-          <%= current_user.twitter_username.presence || 'Not set' %>
-        </p>
-        <p>
-          <label for="discord_username">Discord Username</label>
-          <%= current_user.discord_username.presence || 'Not set' %>
-        </p>
-        <p>
-          <label for="public_profile">Create a Public Profile?</label>
+          <label for="public_profile">Public</label>
           <%= current_user.public_profile ? 'Yes' : 'No' %>
-          <br />
-            <a href="<%= public_profile_path(current_user.username) %>"
-                target="_blank" class="public-profile-link">View</a> and
-            <a href="<%= profile_tweet_url(current_user) %>"
-               target="_blank" class="tweet-button">
-              <img src="<%= asset_url('tweet.webp') %>"
-                   alt="Tweet" width="62" height="20">
-            </a>
-            your profile
-
         </p>
         <p>
           <%= link_to 'Edit', edit_profile_path, class: 'button' %>
+          <% if current_user.public_profile %>
+            <%= link_to 'View Profile', public_profile_path(current_user.username), class: 'button' %>
+          <% end %>
         </p>
       </fieldset>
     </div>

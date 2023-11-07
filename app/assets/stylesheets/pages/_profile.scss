@@ -17,20 +17,21 @@
   flex: 1;
   flex-direction: column;
   width: 100vw;
-  min-height: 100vh;
   align-items: center;
+  text-align: center;
+
+  .button {
+    margin: auto;
+    display: inline-block;
+  }
 }
 
 .profile-fields {
-  width: 400px;
+  max-width: 400px;
 
   .public-profile-link {
     color: $highlighted-link-text-color;
     font-size: 0.9em;
-  }
-
-  .tweet-button {
-    vertical-align: middle;
   }
 }
 
@@ -52,11 +53,7 @@
   }
 
   .social {
-    margin-right: $margin-standard;
-
-    :last-child {
-      margin-right: 0;
-    }
+    margin: 0 $margin-small $margin-standard;
   }
 
   .social-link {

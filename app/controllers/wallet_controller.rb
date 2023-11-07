@@ -14,10 +14,10 @@ class WalletController < ApplicationController
   end
 
   def public_nfts
-    user = User.find_by(username: public_profile_nfts_params[:username])
+    user = User.find_by(username: public_params[:username])
     raise ActionController::RoutingError, 'Not Found' if !user || !user.public_profile
 
-    @page = get_wallet_nfts(user.eth_address, 24, wallet_params[:cursor])
+    @page = get_wallet_nfts(user.eth_address, 24, public_params[:cursor])
 
     respond_to do |format|
       format.html
@@ -32,7 +32,7 @@ class WalletController < ApplicationController
     params.permit(:cursor)
   end
 
-  def public_profile_nfts_params
+  def public_params
     params.permit(:username, :cursor)
   end
 end
