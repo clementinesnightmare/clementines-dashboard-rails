@@ -8,7 +8,7 @@
     <div class="pagination" id="wallet-pagination">
       <%- if @page[:has_next_page] -%>
         <div class="next">
-          <%= link_to 'More', wallet_nfts_path(cursor: @page[:next_cursor]), data: { turbo_stream: true } %>
+          <%= link_to 'More', public_wallet_path(cursor: @page[:next_cursor]), data: { turbo_stream: true } %>
         </div>
       <%- end -%>
     </div>
