@@ -15,27 +15,27 @@ describe User do
     it 'requires eth address' do
       user.eth_address = ''
       expect(user.save).to be(false)
-      expect(user.errors.map(&:full_message)).to match_array(['Eth address can\'t be blank'])
+      expect(user.errors.map(&:full_message)).to contain_exactly('Eth address can\'t be blank')
     end
 
     it 'requires address to be unique' do
       user.save!
       user2 = build(:user, eth_address: user.eth_address)
       expect(user2.save).to be(false)
-      expect(user2.errors.map(&:full_message)).to match_array(['Eth address has already been taken'])
+      expect(user2.errors.map(&:full_message)).to contain_exactly('Eth address has already been taken')
     end
 
     it 'requires nonce' do
       user.eth_nonce = ''
       expect(user.save).to be(false)
-      expect(user.errors.map(&:full_message)).to match_array(['Eth nonce can\'t be blank'])
+      expect(user.errors.map(&:full_message)).to contain_exactly('Eth nonce can\'t be blank')
     end
 
     it 'requires nonce to be unique' do
       user.save!
       user2 = build(:user, eth_nonce: user.eth_nonce)
       expect(user2.save).to be(false)
-      expect(user2.errors.map(&:full_message)).to match_array(['Eth nonce has already been taken'])
+      expect(user2.errors.map(&:full_message)).to contain_exactly('Eth nonce has already been taken')
     end
 
     it 'defaults username to eth address' do
@@ -61,21 +61,21 @@ describe User do
       user.save!
       user2 = build(:user, username: user.username)
       expect(user2.save).to be(false)
-      expect(user2.errors.map(&:full_message)).to match_array(['Username has already been taken'])
+      expect(user2.errors.map(&:full_message)).to contain_exactly('Username has already been taken')
     end
 
     it 'requires username to contain only alphanumeric characters, hyphens and underscores' do
       user.username = '12ab!'
       expect(user.save).to be(false)
-      expect(user.errors.map(&:full_message)).to match_array(
-        ['Username should contain only letters, numbers, hyphens and underscores']
+      expect(user.errors.map(&:full_message)).to contain_exactly(
+        'Username should contain only letters, numbers, hyphens and underscores'
       )
     end
 
     it 'requires username to be at most 32 characters long' do
       user.username = 'a' * 43
       expect(user.save).to be(false)
-      expect(user.errors.map(&:full_message)).to match_array(['Username is too long (maximum is 42 characters)'])
+      expect(user.errors.map(&:full_message)).to contain_exactly('Username is too long (maximum is 42 characters)')
     end
 
     it 'disables public_profile by default' do

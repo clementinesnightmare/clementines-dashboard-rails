@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   # GET /profile/public
   def public_profile
     @user = User.find_by(username: public_profile_params[:username], public_profile: true)
+    render :public_profile, status: :not_found unless @user
   end
 
   # GET /profile/edit
@@ -31,7 +32,7 @@ class UsersController < ApplicationController
     return unless params_address.valid?
 
     user = User.find_or_create_by!(eth_address: user_params[:address].downcase)
-    render json: [eth_nonce: user.eth_nonce]
+    render json: [{ eth_nonce: user.eth_nonce }]
   end
 
   private

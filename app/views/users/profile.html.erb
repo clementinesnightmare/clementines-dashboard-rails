@@ -31,7 +31,7 @@
         <p>
           <%= link_to 'Edit', edit_profile_path, class: 'button' %>
           <% if current_user.public_profile %>
-            <%= link_to 'View Profile', public_profile_path(current_user.username), class: 'button' %>
+            <%= link_to 'View Profile', public_profile_path(current_user.username), class: 'button', data: { turbo_frame: '_top' } %>
           <% end %>
         </p>
       </fieldset>

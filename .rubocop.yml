@@ -1,7 +1,9 @@
-require:
+plugins:
+  - rubocop-factory_bot
   - rubocop-rake
   - rubocop-rails
   - rubocop-rspec
+  - rubocop-rspec_rails
 Metrics/AbcSize:
   Max: 25
 Metrics/MethodLength:

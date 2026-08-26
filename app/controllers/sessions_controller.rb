@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   # POST /session
   def create
     user = User.find_by(eth_address: params[:eth_address].downcase)
-    log_in(user, params[:redirect_path]) if user.present? && verify_signature(user)
+    log_in(user, params[:redirect_path]) if user.present? && verify_signature?(user)
   end
 
   # DELETE /session
@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
 
   private
 
-  def verify_signature(user)
+  def verify_signature?(user)
     if params[:eth_signature]
       message = message(user)
       signature = params[:eth_signature]

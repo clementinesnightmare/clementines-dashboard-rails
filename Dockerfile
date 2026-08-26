@@ -1,4 +1,4 @@
-FROM ruby:3.1.2
+FROM ruby:3.2.11
 LABEL maintainer="Pixelated Ink <info@PixelatedInk.io>"
 
 # Update image

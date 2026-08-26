@@ -7,12 +7,12 @@
       <section class="user-socials">
         <div class="social">
           <a href="<%= @user.twitter_url %>" target="_blank" class="social-link">
-            <img src="<%= asset_path('twitter-white.png')%>" class="social-icon">
+            <%= image_tag 'twitter-white.png', alt: 'Twitter', class: 'social-icon' %>
           </a>
         </div>
         <div class="social">
           <a href="<%= @user.discord_url %>" target="_blank" class="social-link">
-            <img src="<%= asset_path('discord-white.png')%>" class="social-icon">
+            <%= image_tag 'discord-white.png', alt: 'Discord', class: 'social-icon' %>
           </a>
         </div>
       </section>
